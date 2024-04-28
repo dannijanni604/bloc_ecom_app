@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Bloc E-Commerece App',
+      title: 'Bloc E-Commerce App',
       theme: lightTheme,
       debugShowCheckedModeBanner: false,
       home: const HomeView(),

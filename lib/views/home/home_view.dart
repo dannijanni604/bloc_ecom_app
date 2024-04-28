@@ -7,13 +7,21 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: SafeArea(
+          child: SingleChildScrollView(
         child: Column(
           children: [
             customAppBar(title: "ECOM"),
+            Text("Home Screen")
+            
           ],
         ),
-      ),
+      )),
+      bottomNavigationBar: BottomNavigationBar(items: [
+     BottomNavigationBarItem(icon:    Icon(Icons.home_outlined)),
+     BottomNavigationBarItem(icon:    Icon(Icons.search_rounded)),
+     BottomNavigationBarItem(icon:    Icon(Icons.favorite_border)),
+      ],),
     );
   }
 }
