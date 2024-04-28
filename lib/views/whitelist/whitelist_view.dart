@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../custom_widgets/mobile/custom_app_bar.dart';
 
 class WhiteListView extends StatefulWidget {
   const WhiteListView({super.key});
@@ -10,6 +11,13 @@ class WhiteListView extends StatefulWidget {
 class _WhiteListViewState extends State<WhiteListView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [customAppBar(title: "ECOM"), Text("Whitelist Screen")],
+        ),
+      )),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bloc_ecom_app/custom_widgets/mobile/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatefulWidget {
@@ -10,6 +11,13 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [customAppBar(title: "ECOM"), Text("Search Screen")],
+        ),
+      )),
+    );
   }
 }
