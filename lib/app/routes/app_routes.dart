@@ -3,4 +3,5 @@ class AppRoutes {
   static const homeView = "/homeView";
   static const profileView = "/profileView";
   static const cartView = "/cartView";
+  static const notificationsView = "/notificationsView";
 }

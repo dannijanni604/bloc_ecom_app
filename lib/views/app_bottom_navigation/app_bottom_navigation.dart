@@ -44,4 +44,8 @@ List<BottomNavigationBarItem> appBottomNavItems = const [
       activeIcon: Icon(Icons.favorite)),
 ];
 
-List appBottomNavView = const [HomeView(), SearchView(), WhiteListView()];
+List appBottomNavView = const [
+  HomeView(),
+  SearchView(),
+  WhiteListView(),
+];

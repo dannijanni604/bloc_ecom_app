@@ -13,7 +13,7 @@ class AppPages {
         path: AppRoutes.appBottomNav,
         view: const AppBottomNavigation(),
         bloc: BlocProvider(create: (_) => AppBottomNavigationBloc()),
-      )
+      ),
     ];
   }
 
