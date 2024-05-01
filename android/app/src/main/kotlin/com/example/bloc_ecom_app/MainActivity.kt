@@ -1,4 +1,4 @@
-package com.example.bloc_ecom_app
+package com.adnandev.blocecomapp
 
 import io.flutter.embedding.android.FlutterActivity
 

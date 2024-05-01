@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "839821671120",
+    "project_id": "bloc-ecommerce-app-acc95",
+    "storage_bucket": "bloc-ecommerce-app-acc95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839821671120:android:0aa1884a3d71273e9bbcd5",
+        "android_client_info": {
+          "package_name": "com.adnandev.blocecomapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPNuWV5Gd_lCeNOfyZGylhxKZYuOpAaPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
