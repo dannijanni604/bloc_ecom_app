@@ -1,4 +1,4 @@
-import 'package:bloc_ecom_app/custom_widgets/mobile/custom_app_bar.dart';
+import 'package:bloc_ecom_app/app/custom_widgets/mobile/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatefulWidget {
@@ -15,7 +15,7 @@ class _SearchViewState extends State<SearchView> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: [customAppBar(title: "ECOM"), Text("Search Screen")],
+          children: [customAppBar(title: "ECOM",context: context), Text("Search Screen")],
         ),
       )),
     );

@@ -5,10 +5,11 @@ const secondaryColor = Color.fromARGB(255, 255, 255, 255);
 const lightThemeBg=Colors.white;
 
 ThemeData lightTheme = ThemeData(
+  appBarTheme: const AppBarTheme(centerTitle: true),
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
     useMaterial3: true,
     iconButtonTheme: const IconButtonThemeData(
         style: ButtonStyle(
-      iconColor: MaterialStatePropertyAll(primaryColor),
-      iconSize: MaterialStatePropertyAll(24),
+      iconColor: WidgetStatePropertyAll(primaryColor),
+      iconSize: WidgetStatePropertyAll(24),
     )));

@@ -1,4 +1,6 @@
 import 'package:bloc_ecom_app/app/routes/app_routes.dart';
+import 'package:bloc_ecom_app/bloc/switch/switch_bloc.dart';
+import 'package:bloc_ecom_app/views/notifications/notifications_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/app_bottom_navigation/app_bottom_navigation_bloc.dart';
@@ -13,6 +15,11 @@ class AppPages {
         path: AppRoutes.appBottomNav,
         view: const AppBottomNavigation(),
         bloc: BlocProvider(create: (_) => AppBottomNavigationBloc()),
+      ),
+      PageEntity(
+        path: AppRoutes.notificationsView,
+        view: const NotificationsView(),
+        bloc: BlocProvider(create: (_) => SwitchBloc()),
       ),
     ];
   }
