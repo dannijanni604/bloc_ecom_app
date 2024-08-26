@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:bloc_ecom_app/bloc/cart/cart_bloc.dart';
 import 'package:bloc_ecom_app/bloc/image_picker/image_picker_bloc.dart';
 import 'package:bloc_ecom_app/bloc/switch/switch_bloc.dart';
+import 'package:bloc_ecom_app/bloc/whitelist/whitelist_bloc.dart';
+import 'package:bloc_ecom_app/repository/whitelist_repository.dart';
 import 'package:bloc_ecom_app/utils/themes/image_picker_utils.dart';
 import 'package:bloc_ecom_app/utils/themes/light_theme.dart';
 import 'package:bloc_ecom_app/views/app_bottom_navigation/app_bottom_navigation.dart';
@@ -38,7 +40,8 @@ class MyApp extends StatelessWidget {
       BlocProvider(create: (_) => AppBottomNavigationBloc()),
       BlocProvider(create: (_) => SwitchBloc()),
       BlocProvider(create: (_) => ImagePickerBloc(ImagePickerUtils())),
-        BlocProvider(create: (_) => CartBloc())
+        BlocProvider(create: (_) => CartBloc()),
+        BlocProvider(create: (_) => WhitelistBloc(WhitelistRepository()))
       ],
       child: MaterialApp(
         title: 'Bloc E-Commerce App',

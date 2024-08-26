@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const primaryColor = Color.fromARGB(255, 174, 127, 255);
+const primaryColorLight = Color.fromARGB(255, 205, 176, 250);
 const secondaryColor = Color.fromARGB(255, 255, 255, 255);
 const lightThemeBg=Colors.white;
 
