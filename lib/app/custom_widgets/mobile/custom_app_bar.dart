@@ -4,7 +4,7 @@ import 'package:bloc_ecom_app/views/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 
 
-Widget customAppBar({required String title,required BuildContext context}) {
+AppBar customAppBar({required String title,required BuildContext context}) {
   return AppBar(
     elevation: 0,
     centerTitle: true,

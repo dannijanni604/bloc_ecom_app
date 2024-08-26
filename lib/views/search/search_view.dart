@@ -12,12 +12,12 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [customAppBar(title: "ECOM",context: context), Text("Search Screen")],
-        ),
-      )),
+      appBar: customAppBar(title: "ECOM",context: context),
+      body: SingleChildScrollView(
+              child: Column(
+      children: [ Text("Search Screen")],
+              ),
+            ),
     );
   }
 }
