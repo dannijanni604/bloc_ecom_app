@@ -10,13 +10,19 @@ class ProductRepository {
       final response = await http.get(Uri.parse(productsUrl));
 
       if (response.statusCode == 200) {
+
         final data = json.decode(response.body) as List;
-        return data.map((e) {
+
+        return data.asMap().entries.map((entry) {
+          final index = entry.key;
+          final e=entry.value;
           return Product(
+            id: e['id'] as int,
             postId: e['postId'] as int,
             name: e['name'] as String,
             email: e['email'] as String,
             body: e['body'] as String,
+            image: 'https://picsum.photos/id/$index/200/300',
           );
         }).toList();
       }

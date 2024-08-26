@@ -4,8 +4,9 @@ class Product {
   String? name;
   String? email;
   String? body;
+  String? image;
 
-  Product({this.postId, this.id, this.name, this.email, this.body});
+  Product({this.postId, this.id, this.name, this.email, this.body,this.image});
 
   Product.fromJson(Map<String, dynamic> json) {
     postId = json['postId'];
@@ -13,6 +14,7 @@ class Product {
     name = json['name'];
     email = json['email'];
     body = json['body'];
+    body = json['image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -22,6 +24,7 @@ class Product {
     data['name'] = this.name;
     data['email'] = this.email;
     data['body'] = this.body;
+    data['image'] = this.body;
     return data;
   }
 }

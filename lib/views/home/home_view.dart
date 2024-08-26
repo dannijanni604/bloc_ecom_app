@@ -1,7 +1,6 @@
 import 'package:bloc_ecom_app/bloc/products/products_bloc.dart';
 import 'package:bloc_ecom_app/bloc/products/products_event.dart';
 import 'package:bloc_ecom_app/bloc/products/products_state.dart';
-import 'package:bloc_ecom_app/bloc/switch/switch_event.dart';
 import 'package:bloc_ecom_app/bloc/switch/switch_state.dart';
 import 'package:bloc_ecom_app/utils/consts.dart';
 import 'package:flutter/material.dart';
@@ -30,51 +29,58 @@ class _HomeViewState extends State<HomeView> {
         appBar: customAppBar(title: "ECOM", context: context),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(children: [
-              const Text('Slider'),
-              BlocBuilder<SwitchBloc, SwitchState>(
-                  buildWhen: (previous, current) => previous.slider != current.slider,
-                  builder: (context, state) {
-                    return Container(width: 250, height: 100, color: Colors.purple.withOpacity(state.slider));
-                  }),
-              SizedBox(
-                  width: 300,
-                  child: BlocBuilder<SwitchBloc, SwitchState>(
-                      buildWhen: (previous, current) => previous.slider != current.slider,
-                      builder: (context, state) {
-                        return Slider(
-                            value: state.slider,
-                            onChanged: (value) {
-                              context.read<SwitchBloc>().add(SliderEvent(slider: value));
-                            });
-                      })),
-              Row(children: [Text("Other Products", style: kFont20)]),
-              Flexible(
-                  child: BlocBuilder<ProductsBloc, ProductsState>(
-                      buildWhen: (previous, current) => previous.productsList != current.productsList,
-                      builder: (context, state) {
-                        switch (state.status) {
-                          case Status.loading:
-                            return const CircularProgressIndicator();
-                          case Status.failure:
-                            return Center(child: Text(state.responseMessage));
-                          case Status.success:
-                            return GridView.builder(
-                                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                                itemCount: state.productsList.length,
-                                itemBuilder: (context, index) {
-                                  final product = state.productsList[index];
-                                  return Card(
-                                      child: Column(children: [
-                                    ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.network('https://picsum.photos/id/$index/200/300', width: double.infinity, height: 100, fit: BoxFit.cover)),
-                                    const SizedBox(height: 10),
-                                    Padding(padding: const EdgeInsets.only(left: 3), child: Text(product.name!.toString(), overflow: TextOverflow.ellipsis, maxLines: 2))
-                                  ]));
-                                });
-                        }
-                      }))
-            ])));
+            child: BlocBuilder<ProductsBloc, ProductsState>(
+              builder: (context, state) {
+                switch (state.status) {
+                  case Status.loading:
+                    return const Center(child: CircularProgressIndicator());
+                  case Status.failure:
+                    return Center(child: Text(state.responseMessage));
+                  case Status.success:
+                    return Column(children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                            isDense: true,
+                            hintText: 'Search product',
+                            suffixIcon: const Icon(Icons.search)),
+                        onChanged: (value) {
+                          context.read<ProductsBloc>().add(SearchProducts(value));
+                        },
+                      ),
+                      Expanded(
+                        child:
+                        state.searchMessage.isNotEmpty?Center(child: Text(state.searchMessage)):
+                        GridView.builder(
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                            itemCount: state.temProductsList.isEmpty ? state.productsList.length : state.temProductsList.length,
+                            itemBuilder: (context, index) {
+                              if (state.temProductsList.isEmpty) {
+                                final product = state.productsList[index];
+                                return Card(
+                                    child: Column(children: [
+                                      ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Image.network(product.image!, width: double.infinity, height: 100, fit: BoxFit.cover)),
+                                      const SizedBox(height: 10),
+                                      Padding(padding: const EdgeInsets.only(left: 3), child: Text(product.name!.toString(), overflow: TextOverflow.ellipsis, maxLines: 2))
+                                    ]));
+                              } else {
+                                final product = state.temProductsList[index];
+                                return Card(
+                                    child: Column(children: [
+                                      ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Image.network(product.image!, width: double.infinity, height: 100, fit: BoxFit.cover)),
+                                      const SizedBox(height: 10),
+                                      Padding(padding: const EdgeInsets.only(left: 3), child: Text(product.name!.toString(), overflow: TextOverflow.ellipsis, maxLines: 2))
+                                    ]));
+                              }
+                            }),)
+                    ]);
+                }
+
+              },
+            )));
   }
 }
