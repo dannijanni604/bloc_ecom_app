@@ -5,7 +5,7 @@ import 'package:bloc_ecom_app/bloc/switch/switch_state.dart';
 import 'package:bloc_ecom_app/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../app/custom_widgets/mobile/custom_app_bar.dart';
+import '../../app/custom_widgets/custom_app_bar.dart';
 import '../../bloc/switch/switch_bloc.dart';
 import '../../utils/enums.dart';
 

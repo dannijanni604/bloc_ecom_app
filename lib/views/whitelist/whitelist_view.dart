@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../app/custom_widgets/mobile/custom_app_bar.dart';
+import '../../app/custom_widgets/custom_app_bar.dart';
 import '../../utils/themes/light_theme.dart';
 
 class WhiteListView extends StatefulWidget {

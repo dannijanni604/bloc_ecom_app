@@ -24,3 +24,13 @@ AppBar customAppBar({required String title,required BuildContext context}) {
     ],
   );
 }
+
+AppBar authAppBar() {
+  return AppBar(
+   automaticallyImplyLeading: false,
+    backgroundColor: primaryColor,
+    elevation: 0,
+    centerTitle: true,
+    title: const Text('ECOM',style: TextStyle(color: lightThemeBg),),
+  );
+}

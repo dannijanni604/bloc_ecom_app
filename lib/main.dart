@@ -10,6 +10,7 @@ import 'package:bloc_ecom_app/repository/whitelist_repository.dart';
 import 'package:bloc_ecom_app/utils/themes/image_picker_utils.dart';
 import 'package:bloc_ecom_app/utils/themes/light_theme.dart';
 import 'package:bloc_ecom_app/views/app_bottom_navigation/app_bottom_navigation.dart';
+import 'package:bloc_ecom_app/views/auth/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         title: 'Bloc E-Commerce App',
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
-        home: const AppBottomNavigation(),
+        home: const LoginView(),
         
         // initialRoute: AppRoutes.appBottomNav,
         // onGenerateRoute: AppPages.generateRouteSettings,
