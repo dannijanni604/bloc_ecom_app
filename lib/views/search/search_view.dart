@@ -1,5 +1,5 @@
-import 'package:bloc_ecom_app/app/custom_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import '../../config/custom_widgets/custom_app_bar.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});

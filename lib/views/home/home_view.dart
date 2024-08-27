@@ -1,12 +1,9 @@
 import 'package:bloc_ecom_app/bloc/products/products_bloc.dart';
 import 'package:bloc_ecom_app/bloc/products/products_event.dart';
 import 'package:bloc_ecom_app/bloc/products/products_state.dart';
-import 'package:bloc_ecom_app/bloc/switch/switch_state.dart';
-import 'package:bloc_ecom_app/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../app/custom_widgets/custom_app_bar.dart';
-import '../../bloc/switch/switch_bloc.dart';
+import '../../config/custom_widgets/custom_app_bar.dart';
 import '../../utils/enums.dart';
 
 class HomeView extends StatefulWidget {

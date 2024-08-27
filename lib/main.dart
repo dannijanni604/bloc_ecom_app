@@ -1,6 +1,4 @@
 import 'dart:io';
-// import 'package:bloc_ecom_app/app/routes/app_pages.dart';
-// import 'package:bloc_ecom_app/app/routes/app_routes.dart';
 import 'package:bloc_ecom_app/bloc/cart/cart_bloc.dart';
 import 'package:bloc_ecom_app/bloc/image_picker/image_picker_bloc.dart';
 import 'package:bloc_ecom_app/bloc/products/products_bloc.dart';
@@ -9,13 +7,12 @@ import 'package:bloc_ecom_app/bloc/whitelist/whitelist_bloc.dart';
 import 'package:bloc_ecom_app/repository/whitelist_repository.dart';
 import 'package:bloc_ecom_app/utils/themes/image_picker_utils.dart';
 import 'package:bloc_ecom_app/utils/themes/light_theme.dart';
-import 'package:bloc_ecom_app/views/app_bottom_navigation/app_bottom_navigation.dart';
-import 'package:bloc_ecom_app/views/auth/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'bloc/app_bottom_navigation/app_bottom_navigation_bloc.dart';
+import 'config/routes/routes.dart';
+import 'config/routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      // providers: [...AppPages.blocer(context)],
+      // providers: [...Routes.blocer(context)],
       providers: [
       BlocProvider(create: (_) => AppBottomNavigationBloc()),
       BlocProvider(create: (_) => SwitchBloc()),
@@ -50,10 +47,8 @@ class MyApp extends StatelessWidget {
         title: 'Bloc E-Commerce App',
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
-        home: const LoginView(),
-        
-        // initialRoute: AppRoutes.appBottomNav,
-        // onGenerateRoute: AppPages.generateRouteSettings,
+        initialRoute: AppRoutes.splashView,
+        onGenerateRoute: Routes.generateRoute,
       ),
     );
   }

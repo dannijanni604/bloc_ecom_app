@@ -1,5 +1,4 @@
 
-import 'package:bloc_ecom_app/utils/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 
 TextStyle kFont20=const TextStyle(fontSize: 20);

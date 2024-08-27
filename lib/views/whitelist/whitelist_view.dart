@@ -2,11 +2,9 @@ import 'package:bloc_ecom_app/bloc/whitelist/whitelist_bloc.dart';
 import 'package:bloc_ecom_app/bloc/whitelist/whitelist_event.dart';
 import 'package:bloc_ecom_app/bloc/whitelist/whitelist_state.dart';
 import 'package:bloc_ecom_app/model/whitelist_items.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../app/custom_widgets/custom_app_bar.dart';
+import '../../config/custom_widgets/custom_app_bar.dart';
 import '../../utils/themes/light_theme.dart';
 
 class WhiteListView extends StatefulWidget {
