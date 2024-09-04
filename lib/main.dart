@@ -5,7 +5,7 @@ import 'package:bloc_ecom_app/bloc/products/products_bloc.dart';
 import 'package:bloc_ecom_app/bloc/switch/switch_bloc.dart';
 import 'package:bloc_ecom_app/bloc/whitelist/whitelist_bloc.dart';
 import 'package:bloc_ecom_app/repository/whitelist_repository.dart';
-import 'package:bloc_ecom_app/utils/themes/image_picker_utils.dart';
+import 'package:bloc_ecom_app/utils/image_picker_utils.dart';
 import 'package:bloc_ecom_app/utils/themes/light_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      // providers: [...Routes.blocer(context)],
       providers: [
       BlocProvider(create: (_) => AppBottomNavigationBloc()),
       BlocProvider(create: (_) => SwitchBloc()),

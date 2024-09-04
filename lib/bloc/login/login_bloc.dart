@@ -25,20 +25,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _loginApi(LoginApi event, Emitter<LoginState> emit) async {
-    emit(state.copyWith(loginStatus: LoginStatus.loading));
+    emit(state.copyWith(apiStatus: ApiStatus.loading));
 
     Map data = {'email': state.email, 'password': state.password};
     try {
       final response = await http.post(Uri.parse('https://reqres.in/api/login'), body: data);
       var responseData = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        emit(state.copyWith(loginStatus: LoginStatus.success, message: 'Login success'));
+        emit(state.copyWith(apiStatus: ApiStatus.success, message: 'Login success'));
       } else {
         print('object');
-        emit(state.copyWith(loginStatus: LoginStatus.error, message: responseData['error']));
+        emit(state.copyWith(apiStatus: ApiStatus.error, message: responseData['error']));
       }
     } catch (e) {
-      emit(state.copyWith(loginStatus: LoginStatus.error, message: e.toString()));
+      emit(state.copyWith(apiStatus: ApiStatus.error, message: e.toString()));
     }
   }
 }

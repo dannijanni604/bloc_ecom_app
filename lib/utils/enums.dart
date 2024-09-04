@@ -1,2 +1,2 @@
 enum Status {loading, success, failure}
-enum LoginStatus {initial, loading, success, error}
+enum ApiStatus {initial, loading, success, error}

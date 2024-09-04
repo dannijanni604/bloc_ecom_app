@@ -8,6 +8,10 @@ class Routes {
     switch (settings.name) {
       case AppRoutes.splashView:
         return MaterialPageRoute(builder: (context) => const SplashView());
+      case AppRoutes.loginView:
+        return MaterialPageRoute(builder: (context) => const LoginView());
+      case AppRoutes.signupView:
+        return MaterialPageRoute(builder: (context) => const SignupView());
       case AppRoutes.appBottomNav:
         return MaterialPageRoute(builder: (context) => const AppBottomNavigation());
       case AppRoutes.homeView:
@@ -26,52 +30,4 @@ class Routes {
         });
     }
   }
-
-// static final RouteObserver observer = RouteObserver();
-//
-// static List<PageEntity> routes() {
-//   return [
-//     PageEntity(
-//       path: AppRoutes.appBottomNav,
-//       view: const AppBottomNavigation(),
-//       bloc: BlocProvider(create: (_) => AppBottomNavigationBloc()),
-//     ),
-//     PageEntity(
-//       path: AppRoutes.notificationsView,
-//       view: const NotificationsView(),
-//       bloc: BlocProvider(create: (_) => SwitchBloc()),
-//     ),
-//   ];
-// }
-//
-// static List<dynamic> blocer(BuildContext context) {
-//   List<dynamic> blocerList = [];
-//
-//   for (var blocks in routes()) {
-//     blocerList.add(blocks.bloc);
-//   }
-//
-//   return blocerList;
-// }
-//
-// static MaterialPageRoute generateRouteSettings(RouteSettings settings) {
-//   // if (settings.name != null) {
-//   //   var result = routes().where((element) => element.path == settings.name);
-//   //   if (result.isNotEmpty) {}
-//   // }
-//   return MaterialPageRoute<void>(
-//       builder: (_) => const AppBottomNavigation(), settings: settings);
-// }
-}
-
-class PageEntity {
-  String path;
-  Widget view;
-  dynamic bloc;
-
-  PageEntity({
-    required this.path,
-    required this.view,
-    required this.bloc,
-  });
 }
