@@ -27,7 +27,6 @@ class _SignupViewState extends State<SignupView> {
   void initState() {
     super.initState();
     _signupBloc = SignupBloc();
-    print('Bloc');
   }
 
   @override

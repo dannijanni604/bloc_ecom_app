@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import '../../config/app_common_functions.dart';
 import '../../model/product.dart';
 import '../../repository/product_repository.dart';
 import '../../utils/enums.dart';
@@ -19,8 +20,8 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       emit(state.copyWith(status: Status.success, responseMessage: 'Success', productsList: val));
     }).onError((error, stackTrace) {
       emit(state.copyWith(status: Status.failure, responseMessage: error.toString()));
-      print(error);
-      print(stackTrace);
+      customLog(error.toString());
+      customLog(stackTrace.toString());
     });
   }
 

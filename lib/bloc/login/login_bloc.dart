@@ -34,7 +34,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       if (response.statusCode == 200) {
         emit(state.copyWith(apiStatus: ApiStatus.success, message: 'Login success'));
       } else {
-        print('object');
         emit(state.copyWith(apiStatus: ApiStatus.error, message: responseData['error']));
       }
     } catch (e) {
