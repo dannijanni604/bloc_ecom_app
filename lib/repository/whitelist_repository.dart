@@ -1,4 +1,4 @@
-import 'package:bloc_ecom_app/model/whitelist_items.dart';
+import '../model/model.dart';
 
 class WhitelistRepository {
   Future<List<WhitelistItems>> fetchItems() async {
@@ -7,6 +7,7 @@ class WhitelistRepository {
   }
 
   List<WhitelistItems> _generateList(int length) {
-    return List.generate(length, (index) => WhitelistItems(id: index.toString(), value: "Item $index"));
+    return List.generate(length,
+        (index) => WhitelistItems(id: index.toString(), value: "Item $index"));
   }
 }
