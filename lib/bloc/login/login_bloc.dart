@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
-import 'package:bloc_ecom_app/utils/enums.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
+import '../../utils/utils.dart';
 
 part 'login_event.dart';
-
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
@@ -29,12 +27,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     Map data = {'email': state.email, 'password': state.password};
     try {
-      final response = await http.post(Uri.parse('https://reqres.in/api/login'), body: data);
+      final response =
+          await http.post(Uri.parse('https://reqres.in/api/login'), body: data);
       var responseData = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        emit(state.copyWith(apiStatus: ApiStatus.success, message: 'Login success'));
+        emit(state.copyWith(
+            apiStatus: ApiStatus.success, message: 'Login success'));
       } else {
-        emit(state.copyWith(apiStatus: ApiStatus.error, message: responseData['error']));
+        emit(state.copyWith(
+            apiStatus: ApiStatus.error, message: responseData['error']));
       }
     } catch (e) {
       emit(state.copyWith(apiStatus: ApiStatus.error, message: e.toString()));

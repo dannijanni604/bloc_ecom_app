@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../config/custom_widgets/custom_app_bar.dart';
+import '../../config/config.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -12,12 +12,12 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(title: "ECOM",context: context),
-      body: SingleChildScrollView(
-              child: Column(
-      children: [ Text("Search Screen")],
-              ),
-            ),
+      appBar: customAppBar(title: "ECOM", context: context),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [Text("Search Screen")],
+        ),
+      ),
     );
   }
 }

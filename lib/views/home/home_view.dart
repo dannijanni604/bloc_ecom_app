@@ -3,8 +3,8 @@ import 'package:bloc_ecom_app/bloc/products/products_event.dart';
 import 'package:bloc_ecom_app/bloc/products/products_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../config/custom_widgets/custom_app_bar.dart';
-import '../../utils/enums.dart';
+import '../../config/config.dart';
+import '../../utils/utils.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -37,46 +37,72 @@ class _HomeViewState extends State<HomeView> {
                     return Column(children: [
                       TextFormField(
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5)),
                             isDense: true,
                             hintText: 'Search product',
                             suffixIcon: const Icon(Icons.search)),
                         onChanged: (value) {
-                          context.read<ProductsBloc>().add(SearchProducts(value));
+                          context
+                              .read<ProductsBloc>()
+                              .add(SearchProducts(value));
                         },
                       ),
                       Expanded(
-                        child:
-                        state.searchMessage.isNotEmpty?Center(child: Text(state.searchMessage)):
-                        GridView.builder(
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                            itemCount: state.temProductsList.isEmpty ? state.productsList.length : state.temProductsList.length,
-                            itemBuilder: (context, index) {
-                              if (state.temProductsList.isEmpty) {
-                                final product = state.productsList[index];
-                                return Card(
-                                    child: Column(children: [
+                        child: state.searchMessage.isNotEmpty
+                            ? Center(child: Text(state.searchMessage))
+                            : GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2),
+                                itemCount: state.temProductsList.isEmpty
+                                    ? state.productsList.length
+                                    : state.temProductsList.length,
+                                itemBuilder: (context, index) {
+                                  if (state.temProductsList.isEmpty) {
+                                    final product = state.productsList[index];
+                                    return Card(
+                                        child: Column(children: [
                                       ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                          child: Image.network(product.image!, width: double.infinity, height: 100, fit: BoxFit.cover)),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: Image.network(product.image!,
+                                              width: double.infinity,
+                                              height: 100,
+                                              fit: BoxFit.cover)),
                                       const SizedBox(height: 10),
-                                      Padding(padding: const EdgeInsets.only(left: 3), child: Text(product.name!.toString(), overflow: TextOverflow.ellipsis, maxLines: 2))
+                                      Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 3),
+                                          child: Text(product.name!.toString(),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2))
                                     ]));
-                              } else {
-                                final product = state.temProductsList[index];
-                                return Card(
-                                    child: Column(children: [
+                                  } else {
+                                    final product =
+                                        state.temProductsList[index];
+                                    return Card(
+                                        child: Column(children: [
                                       ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                          child: Image.network(product.image!, width: double.infinity, height: 100, fit: BoxFit.cover)),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: Image.network(product.image!,
+                                              width: double.infinity,
+                                              height: 100,
+                                              fit: BoxFit.cover)),
                                       const SizedBox(height: 10),
-                                      Padding(padding: const EdgeInsets.only(left: 3), child: Text(product.name!.toString(), overflow: TextOverflow.ellipsis, maxLines: 2))
+                                      Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 3),
+                                          child: Text(product.name!.toString(),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2))
                                     ]));
-                              }
-                            }),)
+                                  }
+                                }),
+                      )
                     ]);
                 }
-
               },
             )));
   }

@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:bloc_ecom_app/config/data/exceptions/app_exceptions.dart';
-import 'package:bloc_ecom_app/config/data/network/base_api_services.dart';
 import 'package:http/http.dart' as http;
+import '../../config.dart';
 
 class NetworkServicesApi implements BaseApiServices {
   @override
@@ -23,7 +22,7 @@ class NetworkServicesApi implements BaseApiServices {
   Future<dynamic> postApi(String url, var payload) async {
     dynamic jsonResponse;
     try {
-      final response = await http.post(Uri.parse(url),body: payload);
+      final response = await http.post(Uri.parse(url), body: payload);
       jsonResponse = returnResponse(response);
     } on SocketException {
       throw NoInternetException();
@@ -31,7 +30,6 @@ class NetworkServicesApi implements BaseApiServices {
 
     return jsonResponse;
   }
-
 
   @override
   Future<dynamic> deleteApi(String url) async {
@@ -54,17 +52,19 @@ class NetworkServicesApi implements BaseApiServices {
         return jsonResponse;
 
       case 400:
-        final message =jsonDecode(response.body);
+        final message = jsonDecode(response.body);
         throw FetchDataException(message['error']);
 
       case 401:
         throw UnAuthorizedException();
 
       case 500:
-        throw FetchDataException('Error communication with server ${response.statusCode}');
+        throw FetchDataException(
+            'Error communication with server ${response.statusCode}');
 
-      default :
-        throw FetchDataException('Error with status code : ${response.statusCode}');
+      default:
+        throw FetchDataException(
+            'Error with status code : ${response.statusCode}');
     }
   }
 }

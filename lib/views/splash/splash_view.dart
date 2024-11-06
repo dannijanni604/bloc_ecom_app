@@ -1,6 +1,6 @@
 import 'package:bloc_ecom_app/views/splash/splash_services.dart';
 import 'package:flutter/material.dart';
-import '../../utils/themes/light_theme.dart';
+import '../../utils/utils.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -24,8 +24,10 @@ class _SplashViewState extends State<SplashView> {
       body: Center(
         child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: primaryColor),
-            child: const Text('E Commerce App', style: TextStyle(color: lightThemeBg))),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5), color: primaryColor),
+            child: const Text('E Commerce App',
+                style: TextStyle(color: lightThemeBg))),
       ),
     );
   }

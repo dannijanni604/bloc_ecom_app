@@ -1,5 +1,4 @@
-import 'package:bloc_ecom_app/config/app_urls.dart';
-import '../../config/data/network/network_services_api.dart';
+import '../../config/config.dart';
 import '../../model/model.dart';
 
 class SignupRepository {

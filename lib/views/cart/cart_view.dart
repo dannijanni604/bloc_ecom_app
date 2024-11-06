@@ -3,7 +3,7 @@ import 'package:bloc_ecom_app/bloc/cart/cart_event.dart';
 import 'package:bloc_ecom_app/bloc/cart/cart_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../utils/consts.dart';
+import '../../utils/utils.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -23,7 +23,8 @@ class CartView extends StatelessWidget {
                       title: Text(state.cartItems[index]),
                       trailing: IconButton(
                           onPressed: () {
-                            context.read<CartBloc>().add(RemoveFromCartEvent(state.cartItems[index]));
+                            context.read<CartBloc>().add(
+                                RemoveFromCartEvent(state.cartItems[index]));
                           },
                           icon: const Icon(Icons.delete)));
                 });
