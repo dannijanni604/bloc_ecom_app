@@ -1,13 +1,8 @@
 import 'dart:io';
-import 'package:bloc_ecom_app/bloc/cart/cart_bloc.dart';
-import 'package:bloc_ecom_app/bloc/image_picker/image_picker_bloc.dart';
-import 'package:bloc_ecom_app/bloc/products/products_bloc.dart';
-import 'package:bloc_ecom_app/bloc/switch/switch_bloc.dart';
-import 'package:bloc_ecom_app/bloc/whitelist/whitelist_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/app_bottom_navigation/app_bottom_navigation_bloc.dart';
+import 'bloc/bloc.dart';
 import 'config/config.dart';
 import 'repository/repository.dart';
 import 'utils/utils.dart';
