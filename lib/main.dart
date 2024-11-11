@@ -27,14 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => AppBottomNavigationBloc()),
-        BlocProvider(create: (_) => SwitchBloc()),
-        BlocProvider(create: (_) => ImagePickerBloc(ImagePickerUtils())),
-        BlocProvider(create: (_) => CartBloc()),
-        BlocProvider(create: (_) => WhitelistBloc(WhitelistRepository())),
-        BlocProvider(create: (_) => ProductsBloc())
-      ],
+      providers: blocPrviders(),
       child: MaterialApp(
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
@@ -43,4 +36,15 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+List<BlocProvider> blocPrviders() {
+  return [
+    BlocProvider(create: (_) => AppBottomNavigationBloc()),
+    BlocProvider(create: (_) => SwitchBloc()),
+    BlocProvider(create: (_) => ImagePickerBloc(ImagePickerUtils())),
+    BlocProvider(create: (_) => CartBloc()),
+    BlocProvider(create: (_) => WhitelistBloc(WhitelistRepository())),
+    BlocProvider(create: (_) => ProductsBloc())
+  ];
 }
