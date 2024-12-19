@@ -3,7 +3,6 @@ import 'package:bloc_ecom_app/bloc/image_picker/image_picker_bloc.dart';
 import 'package:bloc_ecom_app/bloc/image_picker/image_picker_event.dart';
 import 'package:bloc_ecom_app/bloc/image_picker/image_picker_state.dart';
 import 'package:bloc_ecom_app/bloc/switch/switch_state.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/switch/switch_bloc.dart';

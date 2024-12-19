@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import '../../config/app_common_functions.dart';
-import '../../model/product.dart';
-import '../../repository/product_repository.dart';
-import '../../utils/enums.dart';
+import '../../config/config.dart';
+import '../../model/model.dart';
+import '../../repository/repository.dart';
+import '../../utils/utils.dart';
 import 'products_event.dart';
 import 'products_state.dart';
 

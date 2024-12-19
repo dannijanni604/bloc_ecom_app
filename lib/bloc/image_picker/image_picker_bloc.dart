@@ -1,6 +1,6 @@
-import 'package:bloc_ecom_app/utils/image_picker_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../utils/utils.dart';
 import 'image_picker_event.dart';
 import 'image_picker_state.dart';
 

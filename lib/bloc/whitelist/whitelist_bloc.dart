@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import '../../model/whitelist_items.dart';
-import '../../repository/whitelist_repository.dart';
+import '../../model/model.dart';
+import '../../repository/repository.dart';
 import 'whitelist_event.dart';
 import 'whitelist_state.dart';
 

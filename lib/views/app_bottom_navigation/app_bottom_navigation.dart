@@ -1,9 +1,8 @@
-import 'package:bloc_ecom_app/views/search/search_view.dart';
-import 'package:bloc_ecom_app/views/whitelist/whitelist_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/app_bottom_navigation/app_bottom_navigation_bloc.dart';
-import '../home/home_view.dart';
+import '../views.dart';
 
 class AppBottomNavigation extends StatelessWidget {
   const AppBottomNavigation({super.key});
