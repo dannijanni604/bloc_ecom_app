@@ -10,6 +10,9 @@ class ProductView extends StatefulWidget {
 class _ProductViewState extends State<ProductView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(),
+    );
   }
 }
